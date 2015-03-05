@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+.inner{
+	width: 100%;
+	padding: 0 3%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+}
+
+/*==================================================
+	#header
+================================================== */
+#header{
+	position: relative;	
+}
+#logo{
+	width: 57%;
+	position: relative;
+	z-index: 1000;
+}
+#logo img{
+	width: 171px;
+	height: auto;	
+}
+#header .sec_01{
+	padding: 18px 0;
+}
+#header .sec_01 nav{
+	display: none;	
+}
+#header .sec_02 form{
+	width: 100%;
+	float: none;
+	display: table;
+	padding: 9px 0;
+}
+#header .sec_02 form div{
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+}
+#header .sec_02 form .search_text{
+	width: auto;
+}
+#header .sec_02 form .search_btn{
+	
+}
+/*==================================================
+	main
+================================================== */
+main{
+	width: 100%;
+	margin: 0 0 40px;
+}
+article{
+	width: 100%;
+	float: none;	
+}
+/*==================================================
+	aside
+================================================== */
+aside{
+	width: 100%;
+	float: none;	
+}
+aside .page_list ul{
+	border-top: 1px solid #e4e4e4;
+}
+aside .page_list ul li{
+	margin-bottom: 0;
+}
+aside .page_list ul li a,
+aside .blog_list .ttl a{
+	padding: 13px 4.5%;
+	border-top: none;
+}
+aside .blog_list .ttl a{
+	font-size: 16px;
+}
+aside .blog_list ul{
+	padding: 0;
+}
+aside .blog_list ul li{
+	border-bottom: 1px solid #e4e4e4;	
+}
+aside .blog_list ul li a{
+	padding: 8px 4.5%;
+}
+aside .blog_list ul li a:after{
+	right: 4.5%;
+}
+/*==================================================
+	#footer
+================================================== */
+#footer .pagetop .inner{
+	padding: 0;	
+}
+#footer .copy .inner{
+	padding: 0 4.5%;
+}
+
+/*==================================================
+	front-page
+================================================== */
+.home article .sec_mainimage img{
+	width: 100%;
+	height: auto;	
+}
+.home article .sec_01{
+	padding: 0 4.5%;
+}
+.home article .sec_01 nav ul{
+	width: 100%;
+}
+.home article .sec_01 nav ul li{
+	width: 48%;
+	height: 40%;
+	margin: 0 4% 4% 0;
+}
+.home article .sec_01 nav ul li:nth-child(even){
+	margin-right: 0;
+}
+.home article .sec_01 nav ul li a{
+	height: 100%;
+	padding: 5% 20%;
+}
+.home article .sec_01 nav ul li a dl{
+	width: 100%;
+	display: table;
+}
+.home article .sec_01 nav ul li a dt{
+	padding: 0;
+	width: 48%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.home article .sec_01 nav ul li a dd{
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 2%;
+}
+.home article .sec_01 nav ul li a dt img{
+	width: 100%;
+	height: auto;
+}
+.home article .sec_02 dd{
+	padding: 0;
+}
+.home article .sec_02 dd ul li{
+	float: none;
+	width: 100%;
+	margin: 0;
+	border-bottom: 1px solid #e4e4e4;
+}
+.home article .sec_02 dd ul li a{
+	padding: 8px 4.5%;
+}
+.home article .sec_02 dd ul li a:after{
+	right: 4.5%;
+}
+
+/*==================================================
+	page
+================================================== */
+.page-static article{
+	padding: 29px 0 40px;
+}
+.page-static article h1{
+	padding: 0 4.5% 25px;
+}
+.page-static article section{
+	padding: 0 4.5%;
+}
+.page-static article blockquote{
+	padding: 15px;
+}
+.page-static article th,
+.page-static article td{
+	display: block;
+}
+.page-static article th{
+	width: auto;
+	margin-bottom: 3px;
+}
+.page-static article .btn{
+	width: 100%;
+	padding: 7px 0;
+}
+.page-static aside{
+	display: none;
+}
+
+
+
+
+
+
