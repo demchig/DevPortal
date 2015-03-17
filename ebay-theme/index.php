@@ -8,7 +8,6 @@
 	<?php foreach ($items as $row) { ?>
 	<div class="entry-archive">
 		<div class="post" id="post-<?php echo $row->ID; ?>">
-
 			<div class="post-date">
 				<span><?php echo date('Y/n/j', strtotime($row->post_date)); ?></span>
 				<?php echo ''; ?>
@@ -30,34 +29,36 @@
 	<?php } ?>
 	<?php } ?>
 <?php } else { ?>
+	<div class="page-ttl"><h2>ブログ</h2></div>
+
+	<?php $cnt = 0; ?>
 	<?php if (have_posts()) { ?>
 	<?php while (have_posts()) { the_post(); ?>
 	<div class="entry-archive">
 		<div class="post" id="post-<?php the_ID(); ?>">
 
-			<div class="post-date">
-				<span><?php the_time('Y/n/j') ?></span>
+			<div class="title-date clearfix">
+				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+
+				<div class="post-date">
+					<span><?php the_time('Y/n/j') ?></span>
+				</div>
 			</div>
 
-			<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-			
 			<?php //the_category(', ') ?>
-			
-			<div id="line"></div>
 
 			<?php echo mb_substr(strip_tags($post->post_content),0,200) . "...";; ?>
 
 			<div class="readMoreLink">
 				<a href="<?php echo get_permalink(); ?>"><?php _e('続きを読む', 'semplicemente') ?><i class="fa spaceLeft fa-angle-double-right"></i></a>
 			</div>
-
-			<div class="archive-line"></div>
 		</div>
 	</div>
 <?php } ?>
 
-<div class="alignleft"><?php next_posts_link('&laquo; Previous Entries') ?></div>
-<div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
+	<article class="pagination">
+	<?php pagination(); ?>
+	</article>
 
 <?php } else { ?>
 	<div class="entry">

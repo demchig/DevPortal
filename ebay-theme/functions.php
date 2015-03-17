@@ -161,4 +161,56 @@ $detect = new Mobile_Detect;
 			'after_title' => '<span></span></a></div>',
 		));
 	}
+
+/*==================================================
+	ページ送り
+================================================== */
+function pagination($pages = '', $range = 2) {
+	 $showitems = ($range * 2) + 1;
+ 
+	 global $paged;
+	 if (empty($paged)) $paged = 1;
+ 
+	 if ($pages == '') {
+		 global $wp_query;
+		 $pages = $wp_query->max_num_pages;
+		 if (!$pages) {
+			 $pages = 1;
+		 }
+	 }
+ 
+	if (1 != $pages) {
+		echo '<div class="pagination"><div class="pagination-inner">';
+
+		if ($paged > 1 && $showitems < $pages) {
+			echo '<span class="prev"><a href="' . get_pagenum_link($paged - 1) . '">前へ</a></span>';
+		}
+ 		if ($paged > 2 && $paged > $range+1 && $showitems < $pages) {
+			echo '<span class="first"><a href="' . get_pagenum_link(1) . '">1</a></span>';
+			echo '<span class="between">&nbsp;</span>';
+		}
+
+		for ($i = 1; $i <= $pages; $i++) {
+			if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
+				echo ($paged == $i) ? '<span class="active">' . $i. '</span>' : '<span><a href="' . get_pagenum_link($i) . '">' . $i . '</a></span>';
+			}
+		}
+ 
+		if ($paged + $range < $pages) {
+			echo '<span class="between">&nbsp;</span>';
+			echo '<span class="last"><a href="' . get_pagenum_link($pages) . '">' . $pages . '</a></span>';
+		}
+		if ($paged < $pages && $showitems < $pages) {
+			echo '<span class="next"><a href="' . get_pagenum_link($paged + 1) . '">次へ</a></span>';
+		}
+
+		echo '</div></div>';
+	 }
+}
+
+function new_excerpt_more($more) {
+    return '…';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 ?>

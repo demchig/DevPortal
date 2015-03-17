@@ -94,11 +94,27 @@ wp_head();
         		</nav>
 */ ?>
 				<nav>
+					<?php
+						function ps_get_root_page( $cur_post, $cnt = 0 ) {
+							if ( $cnt > 100 ) { return false; }
+							$cnt++;
+							if ( $cur_post->post_parent == 0 ) {
+								$root_page = $cur_post;
+							} else {
+								$root_page = ps_get_root_page( get_post( $cur_post->post_parent ), $cnt );
+							}
+							return $root_page;
+						}
+
+						$root = ps_get_root_page($post);
+						$child_list = wp_list_pages('echo=0&depth=1&child_of=' . $root->ID . '&title_li=');
+						$child_list = urldecode($child_list);
+					?>
 					<?php wp_nav_menu( array(
 						'theme_location'=>'mainmenu',
 						'container'     =>'', 
 						'menu_class'    =>'',
-						'items_wrap'    =>'<ul id="main-nav">%3$s</ul>'));
+						'items_wrap'    =>'<ul id="main-nav">%3$s<div class="mobile-submenu"><div class="mobile-submenu-list">' . $child_list . '</div></div></ul>'));
 					?>
 				</nav>
         		<?php get_search_form(); ?>
